@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void launchMenuActivity(View view) {
-        Log.d(LOG_TAG, "Button clicked!");
+        Intent intent = new Intent(this, MenuActivity.class);
+        startActivity(intent);
     }
 }
