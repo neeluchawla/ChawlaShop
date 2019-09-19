@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">ChawlaShop</string>
+    <string name="my_app_name">Welcome To Salad Bar</string>
+    <string name="click_Me">Click Me for Salad Experience</string>
 </resources>
