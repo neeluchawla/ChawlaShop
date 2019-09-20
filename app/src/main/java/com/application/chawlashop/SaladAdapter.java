@@ -29,9 +29,7 @@ public class SaladAdapter extends RecyclerView.Adapter<SaladAdapter.ProductViewH
     SaladAdapter saladAdapter;
     public static TextView tv_total;
 
-    private static final String TAG = "MyActivity";
-    private static final String TAG1 = "MyActivity1";
-    private static final String TAG2 = "MyActivity2";
+
     //getting the context and product list with constructor
     public SaladAdapter(Context mCtx, List<Salad> productList) {
         this.mCtx = mCtx;

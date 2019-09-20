@@ -80,7 +80,6 @@ public class MenuActivity extends AppCompatActivity {
 
         @Override
         public void onChanged() {
-            Log.d(TAG, "Hi");
             super.onChanged();
             calculateTotal();
         }
@@ -90,13 +89,9 @@ public class MenuActivity extends AppCompatActivity {
     public void calculateTotal() {
         int i = 0;
         total=0;
-        Log.d(TAG, "Hi");
         while(i < saladList.size()){
             if(saladList.get(i).getQuantity()>0) {
-               Log.d(TAG, String.valueOf(saladList.get(i).getPrice()));
-                Log.d(TAG1, String.valueOf(Integer.valueOf(saladList.get(i).getQuantity())));
                 total = total + (saladList.get(i).getPrice() * Integer.valueOf(saladList.get(i).getQuantity()));
-               Log.d(TAG2, String.valueOf(total));
             }
             i++;
 
