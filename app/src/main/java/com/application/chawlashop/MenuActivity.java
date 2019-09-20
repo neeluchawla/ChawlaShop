@@ -4,8 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.database.DataSetObserver;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +20,9 @@ public class MenuActivity extends AppCompatActivity {
 
     //the recyclerview
     RecyclerView recyclerView;
-
+    public double total=0;
+    SaladAdapter saladAdapter;
+    public static TextView tv_total;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,7 +42,6 @@ public class MenuActivity extends AppCompatActivity {
                         1,
                         "SEARED TUNA SALAD",
                         "mixed greens, arugula, kale, avocado, cucumber, edamame, super slaw, apples, tempura onions, toasted sesame seeds, spicy togarashi seared tuna",
-                        0,
                         20.99,
                         R.drawable.sesame_salad));
 
@@ -46,7 +50,6 @@ public class MenuActivity extends AppCompatActivity {
                         2,
                         "ASIAN SALAD",
                         "romaine lettuce, mixed greens, avocado, mandarin oranges, cherry tomatoes, shredded carrots, crunchy noodles, toasted sesame seeds",
-                        0,
                         11.49,
                         R.drawable.asian_salad));
 
@@ -55,7 +58,6 @@ public class MenuActivity extends AppCompatActivity {
                         3,
                         "CAESAR SALAD",
                         "kale, romaine lettuce, baked pita chips, mozzarella, shaved parmesan, bacon, free run hard boiled egg",
-                        0,
                         14.49,
                         R.drawable.caesar_salad));
         saladList.add(
@@ -63,7 +65,6 @@ public class MenuActivity extends AppCompatActivity {
                         4,
                         "HARVEST SALAD",
                         "romaine lettuce, mixed greens, cherry tomatoes, roasted sweet potato, dried cranberries, pecans, pumpkin seeds, goat cheese",
-                        0,
                         13.99,
                         R.drawable.harvest_salad));
 
@@ -72,6 +73,36 @@ public class MenuActivity extends AppCompatActivity {
 
         //setting adapter to recyclerview
         recyclerView.setAdapter(adapter);
+        adapter.registerAdapterDataObserver(observer);
+
+    }
+    RecyclerView.AdapterDataObserver observer = new RecyclerView.AdapterDataObserver() {
+
+        @Override
+        public void onChanged() {
+            Log.d(TAG, "Hi");
+            super.onChanged();
+            calculateTotal();
+        }
+    };
+
+
+    public void calculateTotal() {
+        int i = 0;
+        total=0;
+        Log.d(TAG, "Hi");
+        while(i < saladList.size()){
+            if(saladList.get(i).getQuantity()>0) {
+               Log.d(TAG, String.valueOf(saladList.get(i).getPrice()));
+                Log.d(TAG1, String.valueOf(Integer.valueOf(saladList.get(i).getQuantity())));
+                total = total + (saladList.get(i).getPrice() * Integer.valueOf(saladList.get(i).getQuantity()));
+               Log.d(TAG2, String.valueOf(total));
+            }
+            i++;
+
+        }
+        tv_total =(TextView) findViewById(R.id.tv_total);
+        tv_total.setText(""+total);
     }
 
     public void insertOrder(View view) {

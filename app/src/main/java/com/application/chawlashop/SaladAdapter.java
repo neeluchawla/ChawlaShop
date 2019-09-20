@@ -1,6 +1,7 @@
 package com.application.chawlashop;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,7 +24,7 @@ public class SaladAdapter extends RecyclerView.Adapter<SaladAdapter.ProductViewH
     private Context mCtx;
 
     //we are storing all the products in a list
-    private List<Salad> saladList;
+    public List<Salad> saladList;
     public double total=0;
     SaladAdapter saladAdapter;
     public static TextView tv_total;
@@ -58,7 +59,8 @@ public class SaladAdapter extends RecyclerView.Adapter<SaladAdapter.ProductViewH
             @Override
             public void onClick(View v) {
                 product.addToQuantity();
-                notifyItemChanged(position);
+                notifyDataSetChanged();
+
 
             }
         });
@@ -67,7 +69,8 @@ public class SaladAdapter extends RecyclerView.Adapter<SaladAdapter.ProductViewH
             @Override
             public void onClick(View v) {
                 product.subQuantity();
-                notifyItemChanged(position);
+                notifyDataSetChanged();
+
 
             }
         });
@@ -89,6 +92,7 @@ public class SaladAdapter extends RecyclerView.Adapter<SaladAdapter.ProductViewH
 
     class ProductViewHolder extends RecyclerView.ViewHolder {
 
+
         TextView textViewTitle, textViewDesc, textViewQuantity, textViewPrice;
         ImageView imageView,reduce_quantity,add_quantity;
 
@@ -101,6 +105,7 @@ public class SaladAdapter extends RecyclerView.Adapter<SaladAdapter.ProductViewH
             textViewQuantity = itemView.findViewById(R.id.textViewQuantity);
             textViewPrice = itemView.findViewById(R.id.textViewPrice);
             imageView = itemView.findViewById(R.id.imageView);
+            tv_total=itemView.findViewById(R.id.tv_total);
         }
     }
 }
