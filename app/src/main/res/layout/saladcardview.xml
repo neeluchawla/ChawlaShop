@@ -26,7 +26,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:layout_toRightOf="@id/imageView"
-                android:text="Salad name"
+                android:text="@string/salad_name"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
                 android:textColor="#000000" />
 
@@ -38,14 +38,13 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="5dp"
                 android:layout_toRightOf="@id/imageView"
-                android:text="Salad Description"
+                android:text="@string/salad_description"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
 
             <ImageView
                 android:id="@+id/addQuantity"
                 android:layout_width="30dp"
                 android:layout_height="20dp"
-
                 android:layout_below="@id/textViewDesc"
                 android:layout_marginLeft="22dp"
                 android:layout_marginTop="5dp"
@@ -64,7 +63,7 @@
                 android:background="@color/colorPrimary"
                 android:paddingLeft="8dp"
                 android:paddingRight="8dp"
-                android:text="Quantity"
+                android:text="0"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Small.Inverse"
                 android:textStyle="bold" />
 
@@ -72,7 +71,6 @@
                 android:id="@+id/reduceQuantity"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-
                 android:layout_below="@id/textViewDesc"
                 android:layout_marginLeft="17dp"
                 android:layout_marginTop="3dp"
@@ -83,26 +81,47 @@
                 android:id="@+id/price_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toRightOf="@id/imageView"
                 android:layout_below="@id/textViewQuantity"
                 android:layout_marginLeft="5dp"
-                android:layout_marginTop="5dp"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-                android:text="Total:" />
+                android:layout_marginTop="9dp"
+                android:layout_toRightOf="@id/imageView"
+                android:text="Price for 1:"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
 
             <TextView
                 android:id="@+id/textViewPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/textViewQuantity"
-                android:layout_marginLeft="65dp"
+                android:layout_marginLeft="85dp"
                 android:layout_marginTop="5dp"
                 android:layout_toRightOf="@id/imageView"
                 android:text="Salad Price"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
                 android:textStyle="bold" />
 
+            <TextView
+                android:id="@+id/subtotal_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/price_label"
+                android:layout_marginLeft="-71dp"
+                android:layout_marginTop="6dp"
+                android:layout_toRightOf="@id/price_label"
+                android:text="Subtotal:"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
 
+            <TextView
+                android:id="@+id/textViewSubTotal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/textViewPrice"
+                android:layout_marginLeft="27dp"
+                android:layout_marginTop="4dp"
+                android:layout_toRightOf="@id/subtotal_label"
+                android:text="Salad Subtotal"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textStyle="bold" />
 
         </RelativeLayout>
 

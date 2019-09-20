@@ -2,4 +2,7 @@
     <string name="app_name">ChawlaShop</string>
     <string name="my_app_name">Welcome To Salad Bar</string>
     <string name="click_Me">Click Me for Salad Experience</string>
+    <string name="place_order">Place Order</string>
+    <string name="salad_name">Salad name</string>
+    <string name="salad_description">Salad Description</string>
 </resources>

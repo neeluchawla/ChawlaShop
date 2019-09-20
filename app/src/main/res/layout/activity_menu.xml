@@ -12,22 +12,33 @@
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:padding="5dp"
-        android:weightSum="2">
+        android:weightSum="2"
+        android:orientation="vertical" >
+
         <TextView android:gravity="end"
+            android:id="@+id/non_taxTotal"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_width="match_parent"
-            android:text="Total : "
-            android:textSize="20dp">
+            android:text="Price Before Tax : 0 CAD "
+            android:textSize="12dp">
         </TextView>
-
-        <TextView
+        <TextView android:gravity="end"
+            android:id="@+id/tax"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:text="Tax : 0 CAD "
+            android:textSize="12dp">
+        </TextView>
+        <TextView android:gravity="end"
             android:id="@+id/tv_total"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_width="match_parent"
-            android:text="0 CAD"
-            android:textSize="20dp">
+            android:text="Price After Tax : 0 CAD"
+            android:textStyle="bold"
+            android:textSize="15dp">
         </TextView>
     </LinearLayout>
 
@@ -47,9 +58,10 @@
         android:layout_height="60dp"
         android:layout_width="match_parent"
         android:onClick="insertOrder"
-        android:text="Place Order"
+        android:text="@string/place_order"
         android:textColor="@android:color/white"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:enabled="false">
 
     </Button>
 </RelativeLayout>
