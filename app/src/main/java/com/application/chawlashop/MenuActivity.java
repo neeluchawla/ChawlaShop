@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.database.DataSetObserver;
 import android.os.Bundle;
 import android.util.Log;
@@ -125,5 +126,7 @@ public class MenuActivity extends AppCompatActivity {
         return tax;
     }
     public void insertOrder(View view) {
+        Intent intent = new Intent(this, CheckOutActivity.class);
+        startActivity(intent);
     }
 }
