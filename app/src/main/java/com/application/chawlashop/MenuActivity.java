@@ -10,8 +10,11 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class MenuActivity extends AppCompatActivity {
 
@@ -20,9 +23,10 @@ public class MenuActivity extends AppCompatActivity {
 
     //the recyclerview
     RecyclerView recyclerView;
-    public double total=0;
+    public double total,subtotal,tax;
     SaladAdapter saladAdapter;
-    public static TextView tv_total;
+    public static TextView tv_total,tv_subtotal,tv_tax;
+    private static DecimalFormat df2 = new DecimalFormat("#.##");
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -89,17 +93,37 @@ public class MenuActivity extends AppCompatActivity {
     public void calculateTotal() {
         int i = 0;
         total=0;
+        tax=0;
+        subtotal=0;
         while(i < saladList.size()){
             if(saladList.get(i).getQuantity()>0) {
-                total = total + (saladList.get(i).getPrice() * Integer.valueOf(saladList.get(i).getQuantity()));
+                subtotal = subtotal + (saladList.get(i).getPrice() * Integer.valueOf(saladList.get(i).getQuantity()));
             }
             i++;
 
         }
+        Map<String,Double> tax=taxCalculation(subtotal);
+
+        //find the view
+        tv_subtotal =(TextView) findViewById(R.id.non_taxTotal);
+        tv_tax=(TextView) findViewById(R.id.tax);
         tv_total =(TextView) findViewById(R.id.tv_total);
-        tv_total.setText(""+total);
+
+        //setting the value
+        tv_subtotal.setText("Price Before Tax :"+df2.format(subtotal)+" "+"CAD");
+        tv_tax.setText("Tax : GST: "+df2.format(tax.get("GST"))+" "+"CAD, QST: "+df2.format(tax.get("QST"))+" "+"CAD");
+        tv_total.setText("Price After Tax :"+df2.format(subtotal+tax.get("GST")+tax.get("QST"))+" "+"CAD");
     }
 
+    private Map<String,Double> taxCalculation(double total){
+        //gst 5% and qst 9.975%
+        double gst=total*0.05;
+        double qst=total*0.09975;
+        HashMap<String,Double> tax=new HashMap<String,Double>();
+        tax.put("GST",gst);
+        tax.put("QST",qst);
+        return tax;
+    }
     public void insertOrder(View view) {
     }
 }
