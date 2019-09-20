@@ -58,9 +58,10 @@
         android:layout_height="60dp"
         android:layout_width="match_parent"
         android:onClick="insertOrder"
-        android:text="Place Order"
+        android:text="@string/place_order"
         android:textColor="@android:color/white"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:enabled="false">
 
     </Button>
 </RelativeLayout>

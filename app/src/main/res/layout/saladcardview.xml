@@ -26,7 +26,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:layout_toRightOf="@id/imageView"
-                android:text="Salad name"
+                android:text="@string/salad_name"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
                 android:textColor="#000000" />
 
@@ -38,14 +38,13 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="5dp"
                 android:layout_toRightOf="@id/imageView"
-                android:text="Salad Description"
+                android:text="@string/salad_description"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
 
             <ImageView
                 android:id="@+id/addQuantity"
                 android:layout_width="30dp"
                 android:layout_height="20dp"
-
                 android:layout_below="@id/textViewDesc"
                 android:layout_marginLeft="22dp"
                 android:layout_marginTop="5dp"
@@ -72,7 +71,6 @@
                 android:id="@+id/reduceQuantity"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-
                 android:layout_below="@id/textViewDesc"
                 android:layout_marginLeft="17dp"
                 android:layout_marginTop="3dp"
