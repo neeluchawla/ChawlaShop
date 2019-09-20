@@ -12,7 +12,7 @@ public class Salad {
     private int quantity;
     private final int thumbnail;
     private String description;
-    private float subtotal;
+    private double subtotal;
     private int addQuantity;
     private int subQuantity;
 
@@ -66,11 +66,12 @@ public class Salad {
         this.description = description;
     }
 
-    public float getSubtotal() {
-        return subtotal;
+    public double getSubtotal() {
+        return price*quantity;
     }
 
-    public void setSubtotal(float subtotal) {
+    public void setSubtotal(double subtotal) {
+
         this.subtotal = subtotal;
     }
 

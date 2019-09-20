@@ -102,7 +102,28 @@
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
                 android:textStyle="bold" />
 
+            <TextView
+                android:id="@+id/subtotal_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/price_label"
+                android:layout_marginLeft="-71dp"
+                android:layout_marginTop="6dp"
+                android:layout_toRightOf="@id/price_label"
+                android:text="Subtotal:"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
 
+            <TextView
+                android:id="@+id/textViewSubTotal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/textViewPrice"
+                android:layout_marginLeft="27dp"
+                android:layout_marginTop="4dp"
+                android:layout_toRightOf="@id/subtotal_label"
+                android:text="Salad Subtotal"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textStyle="bold" />
 
         </RelativeLayout>
 

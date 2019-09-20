@@ -75,7 +75,7 @@ public class SaladAdapter extends RecyclerView.Adapter<SaladAdapter.ProductViewH
 
         holder.textViewQuantity.setText(String.valueOf(product.getQuantity()));
         holder.textViewPrice.setText(String.valueOf(product.getPrice())+" "+"CAD");
-
+        holder.textViewSubTotal.setText(String.valueOf(product.getSubtotal()) + " " + "CAD");
         holder.imageView.setImageDrawable(mCtx.getResources().getDrawable(product.getThumbnail()));
 
     }
@@ -91,7 +91,7 @@ public class SaladAdapter extends RecyclerView.Adapter<SaladAdapter.ProductViewH
     class ProductViewHolder extends RecyclerView.ViewHolder {
 
 
-        TextView textViewTitle, textViewDesc, textViewQuantity, textViewPrice;
+        TextView textViewTitle, textViewDesc, textViewQuantity, textViewPrice,textViewSubTotal;
         ImageView imageView,reduce_quantity,add_quantity;
 
         public ProductViewHolder(View itemView) {
@@ -103,7 +103,7 @@ public class SaladAdapter extends RecyclerView.Adapter<SaladAdapter.ProductViewH
             textViewQuantity = itemView.findViewById(R.id.textViewQuantity);
             textViewPrice = itemView.findViewById(R.id.textViewPrice);
             imageView = itemView.findViewById(R.id.imageView);
-            tv_total=itemView.findViewById(R.id.tv_total);
+            textViewSubTotal=itemView.findViewById(R.id.textViewSubTotal);
         }
     }
 }
