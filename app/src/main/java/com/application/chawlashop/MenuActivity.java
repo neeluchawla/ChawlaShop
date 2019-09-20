@@ -6,9 +6,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.database.DataSetObserver;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.text.DecimalFormat;
@@ -109,11 +111,22 @@ public class MenuActivity extends AppCompatActivity {
         tv_subtotal =(TextView) findViewById(R.id.non_taxTotal);
         tv_tax=(TextView) findViewById(R.id.tax);
         tv_total =(TextView) findViewById(R.id.tv_total);
-
+        Button btn = (Button) findViewById(R.id.btn_placeorder);
         //setting the value
         tv_subtotal.setText("Price Before Tax :"+df2.format(subtotal)+" "+"CAD");
         tv_tax.setText("Tax : GST: "+df2.format(tax.get("GST"))+" "+"CAD, QST: "+df2.format(tax.get("QST"))+" "+"CAD");
         tv_total.setText("Price After Tax :"+df2.format(subtotal+tax.get("GST")+tax.get("QST"))+" "+"CAD");
+
+        //enable the button and disable when
+        //no product is added for order
+        if(subtotal>0) {
+            btn.setEnabled(true);
+            btn.setBackgroundColor(Color.GREEN);
+        }
+        else{
+            btn.setEnabled(false);
+            btn.setBackgroundColor(Color.GRAY);
+        }
     }
 
     private Map<String,Double> taxCalculation(double total){
@@ -126,6 +139,7 @@ public class MenuActivity extends AppCompatActivity {
         return tax;
     }
     public void insertOrder(View view) {
+
         Intent intent = new Intent(this, CheckOutActivity.class);
         startActivity(intent);
     }
