@@ -13,6 +13,8 @@ public class Salad {
     private final int thumbnail;
     private String description;
     private float subtotal;
+    private int addQuantity;
+    private int subQuantity;
 
 
     public Salad(int thumbnail){
@@ -20,10 +22,9 @@ public class Salad {
         this.thumbnail = thumbnail;
     }
 
-    public Salad(int id, String title, String description, int quantity, double price, int thumbnail) {
+    public Salad(int id, String title, String description, double price, int thumbnail) {
         this.title = title;
         this.price = price;
-        this.quantity = quantity;
         this.thumbnail=thumbnail;
         this.description=description;
         this.id=id;
@@ -80,4 +81,16 @@ public class Salad {
     public void setId(int id) {
         this.id = id;
     }
+
+    public void addToQuantity(){
+        this.quantity += 1;
+    }
+
+    public void subQuantity(){
+        if(this.quantity >= 1){
+            this.quantity -= 1;
+        }
+    }
+
+
 }
